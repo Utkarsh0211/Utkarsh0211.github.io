@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Covid-19 Quiz</title>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+        <style>
+          
+            *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+            } 
+            #tag
+            {
+                width: 96%;
+                font-size: 35px;
+                font-weight: 450;
+                text-align: center;
+                margin-top: 10px;
+                margin-left: 8px;
+                margin-bottom: 50px;
+            }
+            .frm
+            {
+                margin-top: 44px;
+                margin-left: 22px;
+                margin-right: 12px;
+            /*  border-width: 2px;
+                border-style: inset;
+                border-color: #ccd1d1; */
+                padding-right: 20px;
+            }
+            #mail
+            {
+                text-align: left;
+                margin-left: 5px;
+                font-size: 17px;
+                font-weight: 450;
+            }
+            .req
+            {
+                color: red;
+                font-size: 1em;
+            }
+            #eml
+            {
+                margin-top: 7px;
+                margin-bottom: 25px;
+                border-radius: 4px;
+                border-style: 2px solid #aaa;
+                width: 100%;
+                margin-left: 4px;
+                padding: 4px;
+                align-items: center;
+                justify-content: center;
+            }
+            #eml:focus
+            {
+                border-style: outset;
+                border-color: dodgetBlue;
+                box-shadow: 0px 0 4px 0 dodgerBlue;
+                outline: none;
+            }
+            #name
+            {
+                text-align: left;
+                margin-left: 5px;
+                font-size: 17px;
+                font-weight: 450;
+            }
+            #nm
+            {
+                margin-top: 7px;
+                margin-bottom: 30px;
+                border-radius: 4px;
+                border-style: 2px solid #aaa;
+                width: 100%;
+                margin-left: 4px;
+                padding: 4px;
+                align-items: center;
+                justify-content: center;
+            }
+            #nm:focus
+            {
+                border-style: outset;
+                border-color: dodgetBlue;
+                box-shadow: 0px 0 4px 0 dodgerBlue;
+                outline: none;
+            }
+            #lbl
+            {
+                
+                text-align: left;
+                margin-left: 5px;
+                font-size: 17px;
+                font-weight: 501;
+                text-transform: capitalize;
+            }
+            .rdo
+            {
+                margin-top: 15px;
+                margin-left: 15px;
+            }   
+            #rdoname 
+            {
+                display: block;
+                /* margin: 0px;
+                padding: 0px; */
+            }
+            #gname
+            {
+                margin-left: 7px;
+                margin-top: 10px;
+                font-size: 17px;
+                font-weight: 501;
+            }
+            .gndr
+            {
+                justify-content: space-around;
+                margin-top: 17px;
+                margin-left: 11.7px;
+            }
+            .radio
+            {
+                font-size: 16px;
+                font-weight: 500;
+                text-transform: capitalize;
+                display: inline-block;
+            }
+            #ste
+            {
+                text-align: left;
+                margin-left: 5px;
+                font-size: 17px;
+                font-weight: 450;
+            }
+            #st
+            {
+                margin-top: 7px;
+                margin-bottom: 35px;
+                border-radius: 4px;
+                border-style: 2px solid #aaa;
+                width: 100%;
+                margin-left: 4px;
+                padding: 4px;
+                align-items: center;
+                justify-content: center;
+            }
+            #st:focus
+            {
+                border-style: outset;
+                border-color: dodgetBlue;
+                box-shadow: 0px 0 4px 0 dodgerBlue;
+                outline: none;
+            }
+            #cnt
+            {
+                text-align: left;
+                margin-left: 5px;
+                font-size: 17px;
+                font-weight: 450;
+            }
+            #cont
+            {
+                margin-top: 7px;
+                margin-bottom: 25px;
+                border-radius: 4px;
+                border-style: 2px solid #aaa;
+                width: 100%;
+                margin-left: 4px;
+                padding: 4px;
+                align-items: center;
+                justify-content: center;
+            }
+            #cont:focus
+            {
+                border-style: outset;
+                border-color: dodgetBlue;
+                box-shadow: 0px 0 4px 0 dodgerBlue;
+                outline: none;
+            }
+            #top
+            {
+                box-sizing: border-box;
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+                font-size: 17px;
+                width: 100%;
+                padding-top: 12px;
+                font-weight: bolder;
+                background-color: #f0f3f4;
+                padding-bottom: 12px;
+                padding-right: 12px;
+                margin-bottom: 10px;
+                border-radius: 7px;
+            }
+            .fill
+            {
+                border-radius: 7px;
+                margin-top: 12px;
+                border-width: 0.3px;
+                margin-left: 10px;
+                border-style: solid;
+                border-color: gray;
+                box-shadow: 2px 2px 8px gray;
+            }
+            .ques
+            {
+                font-size: 16px;
+                margin-left: 16px;
+            }
+            .optn
+            {
+                margin-top: 10px;
+                margin-left: 16px;
+            }
+            .fque
+            {
+                margin-left: 17px;
+                margin-right: 9px;
+                margin-bottom: 32px;
+            }
+            #btn
+            {
+                text-align: center;
+                padding: 12px 12px;
+                margin-top: 25px;
+                font-size: 14px;
+                margin-left: 12px;
+                border-radius: 20px;
+                outline: none;
+                color: black;
+                background-color: #fff;
+                margin-bottom: 25px;
+            }
+            #btn:hover
+            {
+                background-color: orange;
+                padding-top: 15px;
+                padding-right: 16px;
+                box-shadow: 2px 1px 4px red;
+                color: white;
+            }
+            /* For Tablet View */
+            @media screen and (min-device-width: 768px) 
+            and (max-device-width: 1460px) {
+                #mail
+                {
+                text-align: left;
+                margin-left: 5px;
+                font-size: 24px;
+                font-weight: 525;
+                }
+                #eml
+                {
+                margin-top: 7px;
+                margin-bottom: 35px;
+                border-radius: 5px;
+                border-style: 4px solid #aaa;
+                width: 70%;
+                margin-left: 40px;
+                padding: 4px;
+                align-items: center;
+                justify-content: center;
+                } 
+                #name
+                {
+                text-align: left;
+                margin-left: 5px;
+                font-size: 24px;
+                font-weight: 525;
+                }
+                #nm
+                {
+                margin-top: 7px;
+                margin-bottom: 30px;
+                border-radius: 5px;
+                border-style: 4px solid #aaa;
+                width: 70%;
+                margin-left: 20px;
+                padding: 4px;
+                align-items: center;
+                justify-content: center;
+                }
+                #lbl
+                {
+                
+                text-align: left;
+                margin-left: 5px;
+                font-size: 24px;
+                font-weight: 530;
+                text-transform: capitalize;
+                }
+                .rdo
+                {
+                margin-top: 25px;
+                margin-left: 25px;
+                }
+                #gname
+                {
+                margin-left: 7px;
+                margin-top: 10px;
+                font-size: 24px;
+                font-weight: 530;
+                }
+                .gndr
+                {
+                justify-content: space-around;
+                margin-top: 17px;
+                margin-left: 11.7px;
+                }
+                #cnt
+                {
+                text-align: left;
+                margin-left: 5px;
+                font-size: 24px;
+                font-weight: 525;
+                }
+                #cont
+                {
+                margin-top: 7px;
+                margin-bottom: 30px;
+                border-radius: 5px;
+                border-style: 4px solid #aaa;
+                width: 70%;
+                margin-left: 90px;
+                padding: 4px;
+                align-items: center;
+                justify-content: center;
+                }
+                #ste
+                {
+                text-align: left;
+                margin-left: 5px;
+                font-size: 24px;
+                font-weight: 525;
+                }
+                #st
+                {
+                margin-top: 7px;
+                margin-bottom: 35px;
+                border-radius: 5px;
+                border-style: 4px solid #aaa;
+                width: 70%;
+                margin-left: 120px;
+                padding: 4px;
+                align-items: center;
+                justify-content: center;
+                } 
+            }
+            /* For mobile Portrait or Landscape view */
+            @media screen and (max-device-width: 640px) {
+                #eml
+                {
+                margin-top: 7px;
+                margin-bottom: 25px;
+                border-radius: 5px;
+                border-style: 4px solid #aaa;
+                width: 100%;
+                margin-left: 4px;
+                padding: 4px;
+                align-items: center;
+                justify-content: center;
+                } 
+            }
+            /* For Desktop View */
+            @media screen and (min-width: 1024px){
+                .frm
+                {
+                margin-top: 44px;
+                margin-left: 60px;
+                margin-right: 60px;
+            /*  border-width: 2px;
+                border-style: inset;
+                border-color: #ccd1d1; */
+                padding-right: 10px;
+                }
+                #tag
+                {
+                width: 96%;
+                font-size: 35px;
+                font-weight: 500;
+                text-align: center;
+                margin-top: 10px;
+                margin-left: 8px;
+                margin-bottom: 35px;
+                padding-top: 10px;
+                }
+                #mail
+                {
+                text-align: left;
+                margin-left: 18px;
+                font-size: 24px;
+                font-weight: 525;
+                }
+                #eml
+                {
+                margin-top: 7px;
+                margin-bottom: 35px;
+                border-radius: 5px;
+                border-style: 4px solid #aaa;
+                width: 70%;
+                margin-left: 40px;
+                padding: 4px;
+                align-items: center;
+                justify-content: center;
+                } 
+                #name
+                {
+                text-align: left;
+                margin-left: 18px;
+                font-size: 24px;
+                font-weight: 525;
+                }
+                #nm
+                {
+                margin-top: 7px;
+                margin-bottom: 30px;
+                border-radius: 5px;
+                border-style: 4px solid #aaa;
+                width: 70%;
+                margin-left: 20px;
+                padding: 4px;
+                align-items: center;
+                justify-content: center;
+                }
+                #lbl
+                {
+                
+                text-align: left;
+                margin-left: 18px;
+                font-size: 24px;
+                font-weight: 530;
+                text-transform: capitalize;
+                }
+                .rdo
+                {
+                margin-top: 25px;
+                /* margin-top: -1px; */
+                margin-left: 25px;
+                height: 19px;
+                width: 19px;
+                vertical-align: baseline;
+                }
+                #rdoname
+                {
+                font-size: 24px;
+                font-weight: 400;
+                padding-left: 35px;
+                display: inline-block;
+                }
+                #gender
+                {
+                    margin-top: 20px;
+                }
+                #gname
+                {
+                margin-left: 18px;
+                margin-top: 25px;
+                font-size: 24px;
+                font-weight: 530;
+                padding-right: 233px;
+                }
+                .gndr
+                {
+                /* justify-content: space-around; */
+                margin-top: 17px;
+                margin-left: 95px;
+                margin-right: 10px;
+                height: 19px;
+                width: 19px;
+                vertical-align: baseline;
+                }
+                .radio
+                {
+                font-size: 24px;
+                font-weight: 400;
+                text-transform: capitalize;
+                display: inline-block;
+                }
+                #cnt
+                {
+                text-align: left;
+                margin-left: 18px;
+                font-size: 24px;
+                font-weight: 525;
+                }
+                #cont
+                {
+                margin-top: 7px;
+                margin-bottom: 30px;
+                border-radius: 5px;
+                border-style: 4px solid #aaa;
+                width: 70%;
+                margin-left: 90px;
+                padding: 4px;
+                align-items: center;
+                justify-content: center;
+                }
+                #ste
+                {
+                text-align: left;
+                margin-left: 18px;
+                font-size: 24px;
+                font-weight: 525;
+                }
+                #st
+                {
+                margin-top: 7px;
+                margin-bottom: 35px;
+                border-radius: 5px;
+                border-style: 4px solid #aaa;
+                width: 70%;
+                margin-left: 120px;
+                padding: 4px;
+                align-items: center;
+                justify-content: center;
+                }
+                .fill
+                {
+                border-radius: 10px;
+                margin-top: 20px;
+                border-width: 0.3px;
+                margin-left: 20px;
+                margin-right: 80px;
+                border-style: solid;
+                border-color: gray;
+                box-shadow: 2px 2px 8px rgb(6, 236, 233);
+                }
+                #top
+                {
+                box-sizing: border-box;
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+                font-size: 30px;
+                width: 100%;
+                padding-top: 12px;
+                font-weight: bolder;
+                background-color: #f0f3f4;
+                padding-bottom: 12px;
+                padding-right: 12px;
+                margin-bottom: 30px;
+                border-radius: 7px;
+                }
+                .ques
+                {
+                font-size: 24px;
+                margin-bottom: 15px;
+                font-weight: 500;
+                margin-left: 16px;
+                }
+                .optn
+                {
+                margin-top: 10px;
+                margin-bottom: 12px;
+                margin-left: 16px;
+                width: 15px;
+                height: 15px;
+                }
+                .fque
+                {
+                font-size: 23px;
+                margin-left: 35px;
+                margin-right: 9px;
+                margin-bottom: 50px;
+                }
+                #btn
+                {
+                text-align: center;
+                padding: 12px 12px;
+                margin-top: 30px;
+                font-size: 18px;
+                margin-right: 78px;
+                border-radius: 20px;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                outline: none;
+                color: black;
+                background-color: #fff;
+                margin-bottom: 25px;
+                }
+                #btn:hover
+                {
+                background-color: rgb(99, 111, 204);
+                padding-top: 15px;
+                font-size: 20px;
+                font-family: 'Courier New', Courier, monospace;
+                padding-right: 16px;
+                box-shadow: 2px 1px 4px rgb(52, 206, 98);
+                color: white;
+                }
+                #submit
+                {
+                    text-align: right;
+                }
+            }
+        </style>
+        <script>
+            "use strict";
+        function check() 
+            {
+                var C = 0;
+                var q1 = document.quiz.ques1.value;
+                var q2 = document.quiz.ques2.value;
+                var q3 = document.quiz.ques3.value;
+                var q4 = document.quiz.ques4.value;
+                var q5 = document.quiz.ques5.value;
+                var q6 = document.quiz.ques6.value;
+                var q7 = document.quiz.ques7.value;
+                var q8 = document.quiz.ques8.value;
+                var q9 = document.quiz.ques9.value;
+                var q10 = document.quiz.ques10.value;
+                var q11 = document.quiz.ques11.value;
+                var btn = document.getElementById("btn");
+                var quiz = document.getElementById("quiz");
+                if ( q1 == "China") {C++}
+                if ( q2 == "Name of the Virus") {C++}
+                if ( q3 == "SARS-CoV-2") {C++}
+                if ( q4 == "Smoking") {C++}
+                if ( q5 == "Wash with soap and water and scrub at least for 20 seconds") {C++}
+                if ( q6 == "Physical distancing 2 meter") {C++}
+                if ( q7 == "All the above") {C++}
+                if ( q8 == "All the above") {C++}
+                if ( q9 == "Burial") {C++}
+                if ( q10 == "Fever") {C++}  
+                if ( q11 == "All the above") {C++}
+            
+                document.write("<b>Result</b> : " + "Your result is " + C );
+                document.write(". Good! Try to know more. Be safe!"); 
+            }
+        </script>
+    </head>
+    <body>
+      <div id="tag">COVID-19 Awareness Quiz</div>
+      <div class="frm">
+          <form name="quiz" onsubmit="return false">
+          <label for="eml" id="mail">Email Address <span class="req">*</span></label>
+          <input type="email" id="eml" name="email" required autocomplete="off" autofocus/>
+          <br>
+          <label for="nm" id="name">Enter Full Name <span class="req">*</span></label>
+          <input type="text" id="nm" name="name" required />  
+          <div margin-bottom="10px;"> 
+          <label name="code" id="lbl" required>How much you know about topic :</label>
+          <!-- <br> -->
+          <label id="rdoname">
+              <input type="radio" class="rdo" name="radio"> Not much
+          </label>
+          <!-- <br> -->
+          <label id="rdoname">
+              <input type="radio" class="rdo" name="radio"> Intermediate
+          </label>
+            <!-- <br> -->
+          <label id="rdoname">
+              <input type="radio" class="rdo" name="radio" margin-bottom="15px;"> Complete 
+          </label>
+         </div>
+          <br>
+          <div id="gender">
+          <label for="gndr" id="gname">Gender :</label>
+          <label class="radio">
+              <input type="radio" class="gndr" name="gender" value="male"> Male
+              <input type="radio" class="gndr" name="gender" value="female"> Female
+              <input type="radio" class="gndr" name="gender" value="other"> Other
+              </label>
+              </div>
+              <br><br>
+              <label id="cnt">Country <span class="req">*</span>
+             <input list="country" name="counrty" id="cont" required/><br></label>
+          <datalist id="country">
+        <option value="India">
+       </datalist>
+              <label id="ste">State <span class="req">*</span>
+             <input list="state" name="state" id="st" required/></label>
+            <datalist id="state">
+             <option value="Andhra Pradesh">
+             <option value="Andaman and Nicobar Islands">
+             <option value="Arunachal Pradesh">
+             <option value="Assam">
+             <option value="Bihar">
+             <option value="Chandigarh">
+             <option value="Chhattisgarh">
+             <option value="Dadar and Nagar Haveli">
+             <option value="Daman and Diu">
+             <option value="Delhi">
+             <option value="Lakshadweep">
+             <option value="Puducherry">
+             <option value="Goa">
+             <option value="Gujarat">
+             <option value="Haryana">
+             <option value="Himachal Pradesh">
+             <option value="Jammu and Kashmir">
+             <option value="Jharkhand">
+             <option value="Karnataka">
+             <option value="Kerala">
+             <option value="Madhya Pradesh">
+             <option value="Maharashtra">
+             <option value="Manipur">
+             <option value="Meghalaya">
+             <option value="Mizoram">
+             <option value="Nagaland">
+             <option value="Odisha">
+             <option value="Punjab">
+             <option value="Rajasthan">
+             <option value="Sikkim">
+             <option value="Tamil Nadu">
+             <option value="Telangana">
+             <option value="Tripura">
+             <option value="Uttar Pradesh">
+             <option value="Uttarakhand">
+             <option value="West Bengal">
+           </datalist>
+       <div name="fill" class="fill">
+           <p id="top">Questions</p>
+           <div class="fque">
+           <p class="ques">1. In which country was COVID-19 first reported?</p>
+           <p><input type="radio" name="ques1" value="America" class="optn"> America</p>
+           <p><input type="radio" name="ques1" value="Italy" class="optn"> Italy</p>
+           <p><input type="radio" name="ques1" value="Japan" class="optn"> Japan</p> 
+           <p><input type="radio" name="ques1" value="China" class="optn"> China</p>
+          </div>
+          <div class="fque">
+              <p class="ques">2. What is COVID-19?</p>
+              <p><input type="radio" name="ques2" value="Name of the Virus" class="optn"> Name of the Virus</p>
+           <p><input type="radio" name="ques2" value="Name of the disease" class="optn"> Name of the disease</p>
+           <p><input type="radio" name="ques2" value="Name of a drug" class="optn"> Name of a drug</p> 
+           <p><input type="radio" name="ques2" value="
+A place in China" class="optn"> 
+A place in China</p>
+          </div>
+          <div class="fque">
+             <p class="ques">3. Which virus causes the disease COVID19</p>
+              <p><input type="radio" name="ques3" value="SARS-CoV-2" class="optn"> SARS-CoV-2</p>
+           <p><input type="radio" name="ques3" value="SARS" class="optn"> SARS</p>
+           <p><input type="radio" name="ques3" value="MERS" class="optn"> MERS</p> 
+           <p><input type="radio" name="ques3" value="MERS" class="optn">MERS</p>
+          </div>
+          <div class="fque">
+             <p class="ques">4. Is there anything We should not do?</p>
+              <p><input type="radio" name="ques4" value="Smoking" class="optn"> Smoking</p>
+           <p><input type="radio" name="ques4" value="Wearing multiple masks" class="optn"> Wearing multiple masks</p>
+           <p><input type="radio" name="ques4" value="Wipe hands with tissue paper or cloth" class="optn"> Wipe hands with tissue paper or cloth</p> 
+           <p><input type="radio" name="ques4" value="Wash with soap and water and scrub at least for 20 seconds" class="optn"> Wash with soap and water and scrub at least for 20 seconds</p>
+          </div>
+           <div class="fque">
+             <p class="ques">5. How can we make our hands safe?</p>
+              <p><input type="radio" name="ques5" value="Wash with soap and water" class="optn"> Wash with soap and water</p>
+           <p><input type="radio" name="ques5" value="Wash with plain water" class="optn"> Wash with plain water</p>
+           <p><input type="radio" name="ques5" value="Wipe hands with tissue paper or cloth" class="optn"> Wipe hands with tissue paper or cloth</p> 
+           <p><input type="radio" name="ques5" value="Wash with soap and water and scrub at least for 20 seconds" class="optn"> Wash with soap and water and scrub at least for 20 seconds</p>
+          </div>
+          <div class="fque">
+           <p class="ques">6. What are the methods to prevent COVID19?</p>
+           <p><input type="radio" name="ques6" value="Physical distancing 2 meter" class="optn"> Physical distancing 2 meter</p>
+           <p><input type="radio" name="ques6" value="No Physical distancing" class="optn"> No Physical distancing</p>
+           <p><input type="radio" name="ques6" value="No use of mask" class="optn"> No use of mask</p> 
+           <p><input type="radio" name="ques6" value="Both 2 and 3" class="optn"> Both 2 and 3</p>
+          </div>
+          <div class="fque">
+           <p class="ques">7. Who is at a higher risk of developing complications from COVID-19?</p>
+           <p><input type="radio" name="ques7" value="Elderly above 65 years and above" class="optn"> Elderly above 65 years and above</p>
+           <p><input type="radio" name="ques7" value="People with uncontrolled diabetes" class="optn"> People with uncontrolled diabetes</p>
+           <p><input type="radio" name="ques7" value="People with other Pre-existing diseases" class="optn"> People with other Pre-existing diseases</p> 
+           <p><input type="radio" name="ques7" value="All the above" class="optn"> All the above</p>
+          </div>
+          <div class="fque">
+           <p class="ques">8. How does Coronavirus transmit?</p>
+           <p><input type="radio" name="ques8" value="Droplets spread - When a person sneezes or cough" class="optn"> Droplets spread - When a person sneezes or cough</p>
+           <p><input type="radio" name="ques8" value="Constant touching of face, eyes or mouth in public place" class="optn"> Constant touching of face, eyes or mouth in public place</p>
+           <p><input type="radio" name="ques8" value="Close contact with a Covid19 infected person" class="optn"> Close contact with a Covid19 infected person</p> 
+           <p><input type="radio" name="ques8" value="All the above" class="optn"> All the above</p>
+          </div>
+          <div class="fque">
+           <p class="ques">9. What are the safe methods of disposal of dead bodies of persons who have died of suspected or confirmed COVID-19</p>
+           <p><input type="radio" name="ques9" value="Cremation" class="optn">         Cremation</p>
+          <p><input type="radio" name="ques9" value="Burial" class="optn"> Burial</p>
+           <p><input type="radio" name="ques9" value="Both 1& 2" class="optn"> Both 1& 2</p> 
+           <p><input type="radio" name="ques9" value="None of the above" class="optn"> None of the above</p>
+          </div>
+          <div class="fque">
+           <p class="ques">10. What are the most common symptoms of COVID-19</p>
+           <p><input type="radio" name="ques10" value="Fever" class="optn"> Fever</p>
+           <p><input type="radio" name="ques10" value="Dry cough" class="optn"> Dry cough</p>
+           <p><input type="radio" name="ques10" value="Tiredness" class="optn"> Tiredness</p> 
+           <p><input type="radio" name="ques10" value="All the above" class="optn"> All the above</p>
+          </div>
+          <div class="fque">
+           <p class="ques">11. Who conducts scientific research about diseases like COVID19?</p>
+           <p><input type="radio" name="ques11" value="Epidemiologists" class="optn"> Epidemiologists</p>
+           <p><input type="radio" name="ques11" value="Public Health Specialists" class="optn"> Public Health Specialists</p>
+           <p><input type="radio" name="ques11" value="Health Data Scientists" class="optn"> Health Data Scientists</p> 
+           <p><input type="radio" name="ques11" value="Medical Doctors" class="optn"> Medical Doctors</p>
+           <p><input type="radio" name="ques11" value="All the above" class="optn"> All the above</p>
+          </div>
+        </div>
+        <div id="submit">
+       <input type="submit" id="btn" onclick="check()" value="Submit"/>
+        </div>
+         </form>
+        </div>
+     <!-- <p id="text"> </p> -->
+    </body>
+</html>
